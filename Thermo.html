@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>ThermoDynamics</title>
+</head>
+<body>
+    <div class="header-div-box"><h1>The energy balance equation is</h1>
+        <h3>Energy <sub>in</sub> - Energy <sub>out</sub> = (Q <sub>in</sub> - Q <sub>out </sub>) + (W <sub>in</sub>
+            - W <sub>out</sub>) + (E <sub>mass,In</sub> - E <sub>mass,out</sub>)</sub></sub></h3>
+    </div>
+    
+    <div class="main-content-div-box"><h1>To Find the Thermal Efficiency</h1>
+    <h1>Mathematically it is represented as;</h1>
+    <h2> nth = Wnet / Q <Sub>in</Sub></h2>
+    <h3>Where nth is the Thermal Efficiency,
+        The Wnet (in joules or any other consistent unit of energy) is the useful Work Output, 
+        And the Q <sub>In</sub> (in joules or any other consistent unit of energy) is the energy Input as Heat
+    </h3>
+    <h2>Efficiency is measured in percentage, so multiply the answer by 100%, or just include it into
+        the fromula as shown below
+    </h2>
+    <h2>Nth = (Wnet / Q <sub>in</sub>) * 100%</h2>
+
+    <h1>Thermal Efficiency Calculator</h1>
+    <label for="usefulWork">Useful Work Output (Joules):</label>
+    <input type="number" id="usefulWork" step="any">
+
+    <label for="energyInput">Energy Input as Heat (Joules):</label>
+    <input type="number" id="energyInput" step="any">
+
+    <button onclick="calculateEfficiency()">Calculate Efficiency</button>
+
+    <p id="calculate-efficiency-result"></p>
+
+    <script>
+        function calculateEfficiency() {
+            const usefulWork = parseFloat(document.getElementById("usefulWork").value);
+            const energyInput = parseFloat(document.getElementById("energyInput").value);
+
+            if (isNaN(usefulWork) || isNaN(energyInput) || energyInput <= 0) {
+                alert("Please enter valid numbers for Useful Work Output and Energy Input as Heat.");
+                return;
+            }
+
+            const efficiency = (usefulWork / energyInput) * 100;
+            document.getElementById("calculate-efficiency-result").innerHTML = "Thermal Efficiency: " + efficiency.toFixed(2) + "%";
+        }
+    </script>
+<!-- This is Work Done With 2 Value's --> 
+    <h1>Work Done Calculator</h1>
+    <label for="force">Force (Newtons):</label>
+    <input type="number" id="force" step="any">
+
+    <label for="displacement">Displacement (Meters):</label>
+    <input type="number" id="displacement" step="any">
+
+    <button onclick="calculateWorkDone()">Calculate Work Done</button>
+
+    <p id="Work-done-result"></p>
+
+    <script>
+        function calculateWorkDone() {
+            const force = parseFloat(document.getElementById("force").value);
+            const displacement = parseFloat(document.getElementById("displacement").value);
+
+            if (isNaN(force) || isNaN(displacement)) {
+                alert("Please enter valid numbers for Force and Displacement.");
+                return;
+            }
+
+            const workDone = force * displacement;
+            document.getElementById("Work-done-result").innerHTML = "Work Done: " + workDone.toFixed(2) + " Joules";
+        }
+    </script>
+<div class="rate-work-done">
+    <h1>Since Force (F) is the product of mass (m) and acceleration (a)</h1>
+    <!-- This Is Work Done With 3 Value's-->
+        <h1>Rate Work Done Calculator</h1>
+        <label for="mass">Mass (kg):</label>
+        <input type="number" id="mass" step="any">
+    
+        <label for="acceleration">Acceleration (m/s²):</label>
+        <input type="number" id="acceleration" step="any">
+    
+        <label for="distance">Distance (meters):</label>
+        <input type="number" id="distance" step="any">
+    
+        <button onclick="calculateRateWorkDone()">Calculate Work Done</button><br>
+        <div class="result-div-box">
+            <p id="rate-work-done-result"></p>
+        </div>
+        
+        <script>function calculateRateWorkDone() {
+            const mass = parseFloat(document.getElementById("mass").value);
+            const acceleration = parseFloat(document.getElementById("acceleration").value);
+            const distance = parseFloat(document.getElementById("distance").value);
+        
+            if (isNaN(mass) || isNaN(acceleration) || isNaN(distance)) {
+                alert("Please enter valid numbers for Mass, Acceleration, and Distance.");
+                return;
+            }
+        
+            const workDone = mass * acceleration * distance;
+            document.getElementById("rate-work-done-result").innerHTML = "Work Done: " + workDone.toFixed(2) + " Joules";
+        }</script>
+        </div>
+</div>
+
+</body>
+</html>

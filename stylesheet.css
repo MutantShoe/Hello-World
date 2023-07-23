@@ -1,0 +1,16 @@
+body {
+    background-color: #F5F5F5 ;
+
+  }
+  .header-div-box{
+    background-color:#ECECEC ;
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: center;
+    padding: 5px;
+  }
+
+  
+  .main-content-div-box{
+    background-color:#f6f6f6 ;
+  }
